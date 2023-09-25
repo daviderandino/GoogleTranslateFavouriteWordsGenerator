@@ -1,0 +1,89 @@
+/* style.css */
+
+/* Reset dei margini e dei padding per il corpo della pagina */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #a6c0e9; /* Colore azzurro per lo sfondo */
+}
+
+/* Stile per l'intestazione */
+h1 {
+    background-color: #333; /* Colore di sfondo per l'intestazione */
+    color: white; /* Colore del testo dell'intestazione */
+    padding: 20px; /* Spaziatura interna dell'intestazione */
+    text-align: center; /* Allineamento del testo al centro */
+}
+
+/* Stile per il pulsante principale */
+#myButton {
+    background-color: #4CAF50; /* Colore di sfondo del pulsante */
+    color: white; /* Colore del testo del pulsante */
+    padding: 10px 20px; /* Spaziatura interna del pulsante */
+    border: none; /* Rimuovi il bordo del pulsante */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    margin: 20px auto; /* Margine esterno del pulsante (centra orizzontalmente) */
+    display: block; /* Mostra come blocco per centrare */
+}
+
+/* Stile per il contenitore del campo di testo */
+#inputContainer {
+    text-align: center; /* Allinea al centro */
+}
+
+/* Stile per il campo di testo */
+#myInput[type="text"] {
+    padding: 10px; /* Spaziatura interna del campo di testo */
+    border: 1px solid #ccc; /* Bordo del campo di testo */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 16px; /* Dimensione del testo */
+    width: 250px; /* Larghezza del campo di testo */
+    margin: 10px auto; /* Margine esterno del campo di testo (centra orizzontalmente) */
+    background-color: #a6c0e9; /* Colore azzurro per lo sfondo */
+    display: none; /* Nascondi il campo di testo all'inizio */
+    margin-bottom: 20px;
+}
+
+/* Stile per il pulsante di conferma */
+#confirmButton {
+    background-color: #3498db; /* Colore di sfondo del pulsante di conferma */
+    color: white; /* Colore del testo del pulsante di conferma */
+    padding: 10px 20px; /* Spaziatura interna del pulsante di conferma */
+    border: none; /* Rimuovi il bordo del pulsante di conferma */
+    border-radius: 5px; /* Angoli arrotondati del pulsante di conferma */
+    font-size: 16px; /* Dimensione del testo del pulsante di conferma */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    display: none; /* Nascondi il pulsante di conferma all'inizio */
+    margin: 0 auto;
+    float: none;
+    margin-top: 20px;
+}
+
+/* Stile per il pulsante aggiuntivo in h1 */
+#functionButton {
+    background-color: #4CAF50; /* Colore di sfondo del pulsante */
+    color: white; /* Colore del testo del pulsante */
+    padding: 5px 10px; /* Spaziatura interna del pulsante */
+    border: none; /* Rimuovi il bordo del pulsante */
+    border-radius: 5px; /* Angoli arrotondati del pulsante */
+    font-size: 12px; /* Dimensione del testo del pulsante */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    float: right; /* Posiziona a destra */
+}
+
+#myButton:hover {
+    background-color: #45a049; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+#myButton:hover, #confirmButton:hover {
+    transition: background-color 0.3s ease; /* Aggiungi una transizione fluida al cambio di colore di sfondo */
+    color: wheat;
+}
+
+.decorative-line {
+    border: none; /* Rimuovi il bordo predefinito */
+    border-top: 2px solid #3498db; /* Linea orizzontale di colore personalizzato e spessore */
+    margin: 20px auto; /* Margine esterno per centrare la linea orizzontale */
+    width: 50%; /* Larghezza della linea orizzontale (puoi personalizzare) */
+}

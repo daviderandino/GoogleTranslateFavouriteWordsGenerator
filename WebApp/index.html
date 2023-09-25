@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Translate Favourite Words Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Google Translate Favourite Words Generator<button id="functionButton">Numero Parole Preferite</button></h1>
+    <button id="myButton">Genera</button>
+
+    <div id="mainContainer">
+        <hr class="decorative-line"> <!-- Linea decorativa -->
+        
+        <div id="inputContainer">
+            <input type="text" id="myInput" placeholder="Inserisci il tuo testo">
+        </div>
+        <button id="confirmButton">Conferma</button>
+    </div>
+
+    <div id="outputContainer">
+        <!-- Qui verrà visualizzato il testo salvato -->
+    </div>
+
+    <script>
+        var inputVisible = false;
+var dataValue = '';
+
+document.getElementById('functionButton').addEventListener('click', function() {
+    // Effettua la chiamata AJAX
+    fetch('/get_data')
+        .then(response => response.json())
+        .then(data => {
+            // Visualizza il valore restituito dalla funzione Python in un alert
+            alert('Ci sono ' + data.value[2] + " parole preferite nel tuo account");
+        })
+        .catch(error => {
+            console.error('Errore nella chiamata AJAX:', error);
+        });
+});
+
+document.getElementById('myButton').addEventListener('click', function() {
+    // Effettua la chiamata AJAX
+    fetch('/get_data')
+        .then(response => response.json())
+        .then(data => {
+            // Assegna data.value alla variabile dataValue
+            dataValue = data.value;
+
+            // Visualizza il valore restituito dalla funzione Python in un alert
+            alert("Qual è la traduzione di: '"  + dataValue[0] + "'?");
+
+            // Recupera il campo di testo e il pulsante di conferma
+            var input = document.getElementById('myInput');
+            var confirmButton = document.getElementById('confirmButton');
+
+            // Mostra il campo di testo e il pulsante di conferma
+            input.style.display = 'block';
+            confirmButton.style.display = 'block';
+            confirmButton.innerText = 'Verifica'; // Aggiorna il testo del pulsante
+
+            input.value = ''
+
+            // Aggiungi il gestore dell'evento "click" al pulsante di conferma una sola volta
+            if (!inputVisible) {
+                confirmButton.addEventListener('click', function() {
+                    if((input.value).toLowerCase() == dataValue[1]){
+                        alert("Corretto!")
+                    }
+                    else{
+                        alert("Sbagliato! La traduzione corretta è '" + dataValue[1] + "'")
+                    }
+                });
+                inputVisible = true;
+            }
+        })
+        .catch(error => {
+            console.error('Errore nella chiamata AJAX:', error);
+        });
+});
+    </script>
+</body>
+</html>
